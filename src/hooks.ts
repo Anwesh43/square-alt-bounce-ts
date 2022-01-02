@@ -51,21 +51,23 @@ export const useStyle = (w : number, h : number, scale : number) => {
     const size : number = Math.min(w, h) / 10 
     const shift: number = size / 4 
     const position = 'absolute'
-    const background = '#indigo'
+    const background = '#1A237E'
+    const boxShadow = `${size / 30}px ${size / 30}px ${size / 30}px ${size / 30}px #5C6BC0`
     return {
         barStyle(i : number) : CSSProperties {
             const upShift: number = shift * sinify(scale) * (1 - 2 * i)
             const left = `${w / 2 - size / 2 + upShift}px`
             const top = `${h / 2 - size / 2 + upShift}px`
             const width = `${size}px`
-            const height = `${shift}px`
+            const height = `${size}px`
             return {
                 position, 
                 left, 
                 top, 
                 width, 
                 height, 
-                background 
+                background,
+                boxShadow
             }
         }
     }
